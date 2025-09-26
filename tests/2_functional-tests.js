@@ -51,7 +51,7 @@ suite("Functional Tests", function () {
 
   suite("Routing tests", function () {
     const bookIdInvalid = "68d584815cfe8201b77e4acb";
-    const bookIdValid = "68d68ff2d9edb0197516a4d2";
+    const bookIdValid = "68d6987fbf670682b6f64a5f";
 
     suite(
       "POST /api/books with title => create book object/expect book object",
@@ -80,7 +80,6 @@ suite("Functional Tests", function () {
           chai
             .request(server)
             .post("/api/books")
-            .send({ title: titleBody })
             .end(function (err, res) {
               const response = res.body;
               assert.equal(res.status, 200, "status should is 200");
@@ -150,7 +149,7 @@ suite("Functional Tests", function () {
           .end(function (err, res) {
             assert.equal(res.status, 200);
             assert.property(res.body, "_id", "book should contain _id");
-            assert.property(res.body, "tile", "book should contain title");
+            assert.property(res.body, "title", "book should contain title");
             assert.property(
               res.body,
               "comments",
@@ -178,7 +177,7 @@ suite("Functional Tests", function () {
             .end(function (err, res) {
               assert.equal(res.status, 200);
               assert.property(res.body, "_id", "book should contain _id");
-              assert.property(res.body, "tile", "book should contain title");
+              assert.property(res.body, "title", "book should contain title");
               assert.property(
                 res.body,
                 "comments",

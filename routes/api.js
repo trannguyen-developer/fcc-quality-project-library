@@ -68,8 +68,6 @@ module.exports = function (app) {
 
         const book = await Book.findById(bookid).populate("comments");
 
-        console.log("book", book);
-
         if (!book) {
           return res.json("no book exists");
         }
